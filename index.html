@@ -1,0 +1,191 @@
+ <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TopFindsIndia — Curated Amazon India Picks</title>
+  <meta name="description" content="Curated product picks from Amazon India. Use affiliate links to earn commissions. Pinterest-ready images and descriptions." />
+
+  <!-- OpenGraph / Pinterest friendly -->
+  <meta property="og:site_name" content="TopFindsIndia" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="TopFindsIndia — Curated Amazon India Picks" />
+  <meta property="og:description" content="Curated product picks from Amazon India. Pin your favourites and buy via affiliate links." />
+  <meta property="og:image" content="https://placehold.co/1200x630?text=TopFindsIndia" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Tailwind CDN for quick styling (good for prototyping) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Small polishing styles */
+    .card-image { height: 220px; object-fit: cover; }
+    .shadow-soft { box-shadow: 0 6px 18px rgba(16,24,40,0.06); }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <header class="bg-white border-b">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="https://placehold.co/56x56?text=TF" alt="TopFindsIndia" class="w-12 h-12 rounded-md" />
+        <div>
+          <h1 class="text-xl font-semibold">TopFindsIndia</h1>
+          <p class="text-sm text-gray-500">Handpicked Amazon India affiliate picks — ready for Pinterest.</p>
+        </div>
+      </div>
+      <nav class="flex gap-3 items-center">
+        <a href="#products" class="text-sm hover:underline">Products</a>
+        <a href="#how" class="text-sm hover:underline">How to add</a>
+        <a href="#contact" class="text-sm hover:underline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <section class="mb-8">
+      <div class="flex items-center justify-between">
+        <h2 id="products" class="text-2xl font-bold">Featured Finds</h2>
+        <div class="text-sm text-gray-500">Click a card to go to Amazon (affiliate links included)</div>
+      </div>
+      <p class="text-sm text-gray-600 mt-2">Tip: Replace <code>topfindsind05-21</code> in the code with your Amazon.in affiliate tag before publishing.</p>
+    </section>
+
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="productGrid">
+      <!-- Product cards injected by JS -->
+    </section>
+
+    <section id="how" class="mt-12 bg-white p-6 rounded-md shadow-soft">
+      <h3 class="text-lg font-semibold">How to use this template</h3>
+      <ol class="list-decimal pl-5 mt-2 text-sm text-gray-700">
+        <li>Open the HTML file and replace <code>topfindsind05-21</code> with your Amazon Associates tag (example: <em>yourtag-21</em>).</li>
+        <li>Replace the sample <code>products</code> array in the script with your products (ASIN, title, image, price, description).</li>
+        <li>Upload the file to your hosting (Netlify/Hostinger/Vercel or GitHub Pages). Use HTTPS so Pinterest can fetch images.</li>
+        <li>Create Pins: Use the provided "Pin" button on each card or manually pin product images to Pinterest with page URL and image URL.</li>
+      </ol>
+    </section>
+
+    <section id="contact" class="mt-8 text-sm text-gray-600">
+      <p>Want changes or a full CMS-backed version? Ask me and I’ll help build it.</p>
+    </section>
+  </main>
+
+  <footer class="max-w-6xl mx-auto px-4 py-6 text-sm text-gray-500">
+    <div class="flex items-center justify-between">
+      <div>© TopFindsIndia</div>
+      <div>Made for Amazon India affiliates • Replace affiliate tag before publishing</div>
+    </div>
+  </footer>
+
+  <!-- Product template and data -->
+  <template id="cardTpl">
+    <article class="bg-white rounded-lg overflow-hidden shadow-soft hover:scale-[1.01] transition-transform duration-200">
+      <a class="block" target="_blank" rel="noopener noreferrer">
+        <img class="w-full card-image" alt="product image" />
+      </a>
+      <div class="p-4">
+        <h4 class="font-semibold text-md leading-tight"></h4>
+        <p class="text-sm text-gray-500 mt-1"></p>
+        <div class="mt-3 flex items-center justify-between">
+          <div>
+            <div class="text-lg font-bold price"></div>
+            <div class="text-xs text-gray-400">Estimated price</div>
+          </div>
+          <div class="flex gap-2">
+            <a class="buyBtn inline-block px-3 py-2 border rounded-md text-sm" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
+            <a class="pinBtn inline-block px-3 py-2 bg-red-50 border rounded-md text-sm" target="_blank" rel="noopener noreferrer">Pin it</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <!-- JSON-LD Structured data example (update per product when publishing) -->
+  <script type="application/ld+json" id="ld-json">{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "TopFindsIndia",
+    "url": "https://your-site.example/"
+  }</script>
+
+  <script>
+    // ---------- CONFIG ----------
+    // Replace with your Amazon.in affiliate tracking tag
+    const AFFILIATE_TAG = 'topfindsind05-21'; // e.g. 'yourtag-21'
+
+    // Sample products array. Replace with your products.
+    // Each product should contain: asin, title, image, price, description
+    const products = [
+      {
+        asin: 'B08EXAMPLE1',
+        title: 'Example Wireless Headphones',
+        image: 'https://placehold.co/600x400?text=Headphones',
+        price: '₹2,999',
+        description: 'Comfortable over-ear wireless headphones with 30hr battery.'
+      },
+      {
+        asin: 'B08EXAMPLE2',
+        title: 'Compact Portable Speaker',
+        image: 'https://placehold.co/600x400?text=Speaker',
+        price: '₹1,499',
+        description: 'Small waterproof Bluetooth speaker — great for travel.'
+      },
+      {
+        asin: 'B08EXAMPLE3',
+        title: 'Smart Fitness Band',
+        image: 'https://placehold.co/600x400?text=Fitness+Band',
+        price: '₹999',
+        description: 'Track steps, heart rate, and sleep with a colourful display.'
+      }
+    ];
+
+    // ---------- RENDERING ----------
+    const grid = document.getElementById('productGrid');
+    const tpl = document.getElementById('cardTpl');
+
+    function amazonProductUrl(asin) {
+      // Amazon India product URL using ASIN + affiliate tag query param
+      // IMPORTANT: Confirm Amazon.in supports 'tag' parameter for your affiliate program and change if required.
+      return `https://www.amazon.in/dp/${asin}/?tag=${AFFILIATE_TAG}`;
+    }
+
+    function pinterestPinUrl(pageUrl, imageUrl, description) {
+      const u = encodeURIComponent(pageUrl);
+      const m = encodeURIComponent(imageUrl);
+      const d = encodeURIComponent(description);
+      return `https://pinterest.com/pin/create/button/?url=${u}&media=${m}&description=${d}`;
+    }
+
+    products.forEach(p => {
+      const clone = tpl.content.cloneNode(true);
+      const a = clone.querySelector('a.block');
+      const img = clone.querySelector('img');
+      const title = clone.querySelector('h4');
+      const desc = clone.querySelector('p');
+      const price = clone.querySelector('.price');
+      const buyBtn = clone.querySelector('.buyBtn');
+      const pinBtn = clone.querySelector('.pinBtn');
+
+      const productUrl = amazonProductUrl(p.asin);
+      a.href = productUrl;
+      img.src = p.image;
+      img.alt = p.title;
+      title.textContent = p.title;
+      desc.textContent = p.description;
+      price.textContent = p.price || '';
+      buyBtn.href = productUrl + '&linkCode=li3&ld=some'; // optional extra params
+
+      // Pin URL: page url should be the product's landing page on your site. Here we use the same page + #asin
+      const pageUrl = location.href.split('#')[0] + '#' + p.asin;
+      pinBtn.href = pinterestPinUrl(pageUrl, p.image, p.title + ' — ' + p.description);
+
+      grid.appendChild(clone);
+    });
+
+    // Basic progressive enhancement: lazy-load images
+    document.addEventListener('DOMContentLoaded', function(){
+      const imgs = document.querySelectorAll('img[loading]');
+      imgs.forEach(i => i.loading = 'lazy');
+    });
+  </script>
+</body>
+</html>
